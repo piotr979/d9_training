@@ -1,0 +1,15 @@
+{
+    "name": "piotrglaza/d9",
+    "autoload": {
+        "psr-4": {
+            "Piotrglaza\\D9\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "piotrglaza",
+            "email": "daftu44@gmail.com"
+        }
+    ],
+    "require": {}
+}

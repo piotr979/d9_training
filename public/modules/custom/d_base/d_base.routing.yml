@@ -1,0 +1,15 @@
+d_base.dbase:
+  path: '/dbase'
+  defaults:
+    _controller: '\Drupal\d_base\Controller\DBController::render'
+    _title: 'Hello World'
+  requirements:
+    _permission: 'access content'
+
+d_base.greeting_form:
+  path: '/admin/config/salutation-configuration'
+  defaults:
+    _form: Drupal\d_base\Form\SalutationConfigurationForm
+    _title: 'Salutation configuration'
+  requirements:
+    _permission: 'administer site configuration'

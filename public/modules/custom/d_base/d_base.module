@@ -1,0 +1,30 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+
+function d_base_help($route_name, RouteMatchInterface $routeMatch) {
+  switch ($route_name) {
+    case 'help.page.d_base':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This is an exmaple module') . '</p>';
+      return $output;
+    default:
+  }
+}
+function d_base_theme($existing, $type, $theme, $path) {
+  return [
+  'd_base_theme_hook' => [
+    'render element' => 'children',
+    'template' => 'd_base-nodes',
+    'path' => $path . '/template',
+    'variables' => [
+      'variable1' => 'Yet another text.',
+      'variable3' => [0,1,3]
+    ]
+    ]
+  ];
+}

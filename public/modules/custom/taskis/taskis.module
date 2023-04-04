@@ -1,0 +1,26 @@
+<?php
+
+/**
+* Implements hook_menu_local_tasks_alter().
+*/
+function taskis_menu_local_tasks_alter(&$data, $route_name) {
+  // Show local tasks only for the "Projects" content type.
+  if ($route_name === 'entity.node.canonical' ) {
+    $node = \Drupal::routeMatch()->getParameter('node');
+
+    if ($node->bundle() != 'project') {
+      if ($data['tabs'][0]['views_view:view.task_projects.page_1']) {
+        unset($data['tabs'][0]['views_view:view.task_projects.page_1']);
+      }
+    }
+  }
+}
+
+// Loop through each local task.
+//foreach ($data['tabs'][0]['output'] as $key => $tab) {
+//  // Remove any local tasks that are not related to "Projects".
+//  if (!in_array($key, ['view', 'edit', 'delete'])) {
+//    unset($data['tabs'][0]['output'][$key]);
+//  }
+//}
+//}

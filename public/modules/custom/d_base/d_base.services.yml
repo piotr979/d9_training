@@ -1,0 +1,4 @@
+services:
+  d_base.salutation:
+    class: Drupal\d_base\HelloWorldSalutation
+    tags:
